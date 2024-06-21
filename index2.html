@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        function arun(hello, x, y){
+            let result=x+y;
+            hello(result);
+
+        }
+        function display(result){
+            console.log(result);
+        }
+
+        arun(display,1,2);   
+    </script> -->
+<!-- 
+<script>
+let number=[1,2,3,4,5];
+number.forEach(double);
+function double(element,array,index){
+
+    console.log(array[index]=element *2);
+}
+</script> -->
+
+
+<!-- <script>
+    let fruits=["apple","orange","banana","coconut"];
+    function uppercase(element,array,index){
+         console.log(  array[index]=element.charAt(0).toUpperCase()+element.slice(1).toLowerCase());
+    }
+    fruits.forEach(uppercase);
+</script> -->
+
+<!-- <script>
+
+    const numbers=[1,2,3,4,5];
+   
+
+   const squares= numbers.map(function(element){
+        return Math.pow(element ,2);
+      
+
+    });
+
+   const evennum= numbers.filter(function(element){
+        return element %2===0;
+    });
+
+  const tottal=  numbers.reduce(function(previous,forward){
+        return previous+forward;
+    });
+
+
+    console.log(squares);
+
+
+</script> -->
+
+<!-- 
+<script>
+
+    const salestax=0.05;
+
+
+    class product{
+        constructor(name,price){
+            this.name=name;
+            this.price=price;
+        }
+
+        displayproduct(){
+            console.log(`name:${this.name}`);
+            console.log(`price: ${this.price}`);
+        }
+
+        calculate(salestax){
+            return this.price +(this.price * salestax)
+        }
+    }
+
+
+const product1=   new product("arun",19.99);
+product1.displayproduct();
+const total=produt.calculate(salestax);
+console.log(`total price $${total.toFixed(2)}`);
+
+
+</script> -->
+
+<!-- 
+<script>
+
+class user{
+
+
+    static usercount=0;
+    constructor(username){
+        this.username=username;
+        user.usercount++;
+    }
+    static getusercount(){
+        console.log(`there is ${user.usercount} user online`);
+
+    }
+    sayhello(){
+        console.log(`helo ,my username is ${this.username}`);
+
+    }
+    
+}
+
+const user1=new user('arun');
+user1.sayhello();
+user.getusercount();
+</script> -->
+
+<!-- <script>
+
+    class animal{
+
+        constructor(name,age){
+            this.name=name;
+            this.age=age;
+        }
+
+        move(speed){
+            console.log(`the ${this.name} move at a speed of ${speed}km`);
+
+
+        }
+    }
+
+    class rabbit extends animal{
+        constructor(name,age,runspeed){
+            super(name,age);
+            this.runspeed=runspeed;
+        }
+        run(){
+            console.log(`this ${this.name} can run`);
+            super.move(this.runspeed);
+        }
+    }
+
+    class fish extends animal{
+        constructor(name,age ,swimspeed){
+            super(name,age);
+            this.swimspeed=swimspeed;
+        }
+        swim(){
+            console.log(`this ${this.name} can swim`);
+            super.move(this.swimspeed);
+        }
+}
+
+const rabbits= new rabbit("rabbit",1,25);
+rabbits.run(); -->
+</script>
+
+
+</body>
+</html>
