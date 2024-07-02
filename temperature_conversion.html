@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Conversion</title>
+    <link rel="stylesheet" href="style_for_temp.css">
+</head>
+<body>
+    <form>
+        <h1>Temperature Conversion</h1>
+        <input type="number" id="textbox" value="0"><br>
+
+        <input type="radio" id="tofahrenheit" name="unit">
+        <label for="tofahrenheit">Celsius → Fahrenheit</label><br>
+
+        <input type="radio" id="tocelsius" name="unit">
+        <label for="tocelsius">Fahrenheit → Celsius</label><br>
+
+        <button type="button" onclick="convert()">Submit</button>
+        <p id="result"></p>
+    </form>
+   
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const textbox = document.getElementById('textbox');
+            const tofahren = document.getElementById('tofahrenheit');
+            const tocel = document.getElementById('tocelsius');
+            const result = document.getElementById('result');
+
+            function convert(){
+                let temp = Number(textbox.value);
+                if (isNaN(temp)) {
+                    result.textContent = "Please enter a valid number";
+                    return;
+                }
+
+                if(tofahren.checked){
+                    temp = temp * 9 / 5 + 32;
+                    result.textContent = temp.toFixed(1) + '°F';
+                }
+                else if(tocel.checked){
+                    temp = (temp - 32) * 5 / 9;
+                    result.textContent = temp.toFixed(1) + '°C';
+                }
+                else{
+                    result.textContent = "Select a unit";
+                }
+            }
+
+            window.convert = convert;
+        });
+    </script>
+</body>
+</html>

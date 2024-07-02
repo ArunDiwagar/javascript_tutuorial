@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mybutton{
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <button id="mybutton">Hide</button>
+
+    <img id="myimg" src="dice-image/god.png" alt="">
+    <script>
+        const mybutton=document.getElementById("mybutton");
+        const myimg=document.getElementById("myimg");
+
+        mybutton.addEventListener("click",event=>{
+            if(myimg.style.visibility==="hidden"){
+                myimg.style.visibility='visible';
+                mybutton.textContent='hide';
+            }
+            else{
+                myimg.style.visibility="hidden";
+                mybutton.textContent="show";
+            }
+        })
+    </script>
+</body>
+</html>

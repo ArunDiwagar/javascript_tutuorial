@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: hsl(0, 0%, 20%);
+        }
+
+        #choices {
+            margin-bottom: 30px;
+        }
+
+        #choices button {
+            font-size: 7.5rem;
+            min-width: 160px;
+            margin: 0 10px;
+            border-radius: 250px;
+            background-color: hsl(188, 100%, 50%);
+            cursor: pointer;
+            transition: background-color 0.5s ease;
+        }
+
+        #choices button:hover {
+            background-color: hsl(200, 100%, 70%);
+        }
+
+        #playdisplay,
+        #computerdisplay {
+            font-size: 2.5rem;
+        }
+
+        #resultdisplay {
+            font-size: 5rem;
+            margin: 30px 0px;
+
+        }
+
+        .scoredisplay {
+            font-size: 2rem;
+        }
+
+        .greentext,
+        #playerscoredisplay {
+            color: hsl(130, 84%, 54%);
+        }
+
+        .redtext,
+        #computerscoredisplay {
+            color: hsl(0, 84%, 60%);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Rock - Paper - Scissors</h1>
+    <div id="choices">
+        <button onclick="playgame('rock')">🪨</button>
+        <button onclick="playgame('paper')">📋</button>
+        <button onclick="playgame('scissor')">✂️</button>
+    </div>
+
+
+    <div id="playdisplay">PLAYER:</div>
+    <div id="computerdisplay">COMPUTER:</div>
+    <div id="resultdisplay">IT'S A TIE</div>
+
+
+    <div class="scoredisplay">Player Score:
+        <span id="playerscoredisplay">0</span>
+    </div>
+    <div class="scoredisplay">Computer Score:
+        <span id="computerscoredisplay">0</span>
+    </div>
+
+    <script>
+        const choices = ["rock", "paper", "scissor"];
+        const playdisplay = document.getElementById('playdisplay');
+        const computerdisplay = document.getElementById('computerdisplay');
+        const resultdisplay = document.getElementById('resultdisplay');
+        const playerscoredisplay = document.getElementById('playerscoredisplay');
+        const computerscoredisplay = document.getElementById('computerscoredisplay');
+        let playerscore = 0;
+        let computerscore = 0;
+
+        function playgame(playerchoice) {
+            const computerchoice = choices[Math.floor(Math.random() * 3)];
+            let result = '';
+
+            if (playerchoice === computerchoice) {
+                result = "IT'S A TIE";
+            } else {
+                switch (playerchoice) {
+                    case "rock":
+                        result = (computerchoice === "scissor") ? "YOU WIN" : "YOU LOSE";
+                        break;
+
+                    case "paper":
+                        result = (computerchoice === "rock") ? "YOU WIN" : "YOU LOSE";
+                        break;
+
+                    case "scissor":
+                        result = (computerchoice === "paper") ? "YOU WIN" : "YOU LOSE";
+                        break;
+                }
+            }
+
+            playdisplay.textContent = `PLAYER: ${playerchoice}`;
+            computerdisplay.textContent = `COMPUTER: ${computerchoice}`;
+            resultdisplay.textContent = result;
+
+            resultdisplay.classList.remove("greentext", "redtext");
+
+            switch (result) {
+                case "YOU WIN":
+                    resultdisplay.classList.add("greentext");
+                    playerscore++;
+                    playerscoredisplay.textContent = playerscore;
+                    break;
+
+                case "YOU LOSE":
+                    resultdisplay.classList.add("redtext");
+                    computerscore++;
+                    computerscoredisplay.textContent = computerscore;
+                    break;
+            }
+
+        }
+    </script>
+</body>
+
+</html>
